@@ -27,7 +27,6 @@ if (!result.success) {
 
 type User = z.infer<typeof User>;
 export type User = z.infer<typeof User>;
-
 const result = mySchema.safeParse(data);
 if (!result.success) {
   (result.error)

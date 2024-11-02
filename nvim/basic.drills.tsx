@@ -1,4 +1,6 @@
+export default function Flashcards({ category }: { category: Category }) {
 //Next client component vsplit
+//
   //useState
   //useRef
   //const true
@@ -6,9 +8,7 @@
   //const await true
   //dconst await true()
   //export const
-  //export dconst
   //export const await
-  //export dconst await
   //if clv
   //else clv
   //for clv
@@ -20,8 +20,6 @@
   //expfunr
   //arrfunr
   //cfunr
-  //cexpfunr
-  //carrfunr
   //fun
   //expfun
   //arrfun

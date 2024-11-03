@@ -1,19 +1,17 @@
 local ts_utils = require("nvim-treesitter.ts_utils")
 local api = vim.api
-
 -- Function to get text and specific parent node tag name
 local function get_text_and_parent_tag(bufnr, node)
-  local text = ts_utils.get_node_text(node, bufnr)[1] or ""
-  if text:match("^%s*$") then
-    return nil  -- Ignore empty or whitespace-only text
-  end
-
+  local text = vim.treesitter.get_node_text(node, bufnr) or ""
+  local trimmed_text = trim(text)
   -- Traverse up to get the actual tag name
   local parent_node = node:parent()
   local parent_tag = ""
 
+  while parent_node:type() ~= "jsx_element" do
+    parent_node = node:parent()
+  end
   -- Check if parent is a `jsx_element` and retrieve the tag name
-  if parent_node and parent_node:type() == "jsx_element" then
     for child in parent_node:iter_children() do
       if child:type() == "jsx_opening_element" then
         local tag_node = child:field("name")[1]
@@ -23,9 +21,8 @@ local function get_text_and_parent_tag(bufnr, node)
        -- break
       end
     end
-  end
 
-  return { parent_node = parent_tag, text = text }
+  return { parent_node = parent_tag, text = trimmed_text }
 end
 
 -- Command implementation
@@ -63,7 +60,6 @@ local function save_text_to_json(args)
     print("Error: Could not save to " .. filepath)
   end
 end
-
 -- Register the command in Neovim
 api.nvim_create_user_command("SaveTextToJson", save_text_to_json, {
   nargs = 1,

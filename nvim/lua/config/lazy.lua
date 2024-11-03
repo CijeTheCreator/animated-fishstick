@@ -89,3 +89,12 @@ function _G.Log(log)
     print("Error: Could not save to " .. filepath)
   end
 end
+function _G.read_json(filepath)
+  local file = io.open(filepath, "rb")
+  if not file then return nil end
+  local jsonString = file:read "*a"
+  file:close()
+  return vim.json.decode(jsonString)
+end
+
+

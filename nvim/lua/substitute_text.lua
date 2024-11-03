@@ -1,14 +1,5 @@
 local ts_utils = require("nvim-treesitter.ts_utils")
 local api = vim.api
---Read text from system
-local function read_json(filepath)
-  local file = io.open(filepath, "rb")
-  if not file then return nil end
-  local jsonString = file:read "*a"
-  file:close()
-  return vim.json.decode(jsonString)
-end
-
 
 local function substitute(sub_table, current_text, node, bufnr)
   local parent_node = node:parent()
@@ -66,7 +57,6 @@ local function subsitute_text_command(args)
   end
   traverse(root)
 end
-api.nvim_del_user_command("SubstituteText")
 -- Register the command in Neovim
 api.nvim_create_user_command("SubstituteText", subsitute_text_command, {
   nargs = 1,

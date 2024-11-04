@@ -53,22 +53,23 @@ require("lazy").setup({
     },
   },
 })
-require("luasnip").filetype_extend("typescriptreact", {"typescriptreact"})
+require("luasnip").filetype_extend("typescriptreact", { "typescriptreact" })
 require("../custom/snippets/prisma")
-require('extract_symbols')
-require('extract_text')
+require("../custom/snippets/basic")
+require("extract_symbols")
+require("extract_text")
 
 function _G.trim(s)
-   return (s:gsub("^%s*(.-)%s*$", "%1"))
+  return (s:gsub("^%s*(.-)%s*$", "%1"))
 end
 function _G.put(...)
   local objects = {}
-  for i = 1, select('#', ...) do
+  for i = 1, select("#", ...) do
     local v = select(i, ...)
     table.insert(objects, vim.inspect(v))
   end
 
-  return table.concat(objects, '\n')
+  return table.concat(objects, "\n")
 end
 function _G.ClearLog()
   local filepath = "./debug"
@@ -93,10 +94,10 @@ function _G.Log(log)
 end
 function _G.read_json(filepath)
   local file = io.open(filepath, "rb")
-  if not file then return nil end
-  local jsonString = file:read "*a"
+  if not file then
+    return nil
+  end
+  local jsonString = file:read("*a")
   file:close()
   return vim.json.decode(jsonString)
 end
-
-

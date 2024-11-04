@@ -1,5 +1,4 @@
 local luasnip = require("luasnip")
-
 local s = luasnip.snippet
 local t = luasnip.text_node
 local i = luasnip.insert_node
@@ -13,15 +12,14 @@ luasnip.add_snippets("typescript", {
       [[
   export default function {}({}) {{
     {}
-    return {};
   }}
   ]],
       {
-        i(1, ""),
-        i(2, ""),
+        i(1, "Component"),
+        i(2, "props"),
+        i(3, "Content"),
       }
     ),
-
     {
       callbacks = {
         [-1] = {
@@ -38,15 +36,14 @@ luasnip.add_snippets("typescript", {
       [[
   export default async function {}({}) {{
     {}
-    return {};
   }}
   ]],
       {
-        i(1, ""),
-        i(2, ""),
+        i(1, "Component"),
+        i(2, "props"),
+        i(3, "Content"),
       }
     ),
-
     {
       callbacks = {
         [-1] = {

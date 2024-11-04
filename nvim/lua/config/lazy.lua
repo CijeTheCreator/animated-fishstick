@@ -56,6 +56,7 @@ require("lazy").setup({
 require("luasnip").filetype_extend("typescriptreact", { "typescriptreact" })
 require("../custom/snippets/prisma")
 require("../custom/snippets/basic")
+require("../custom/snippets/nextjs")
 require("extract_symbols")
 require("extract_text")
 

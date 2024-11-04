@@ -57,8 +57,6 @@ return {
         mapping = {
           ["<Up>"] = cmp.mapping.select_prev_item(),
           ["<Down>"] = cmp.mapping.select_next_item(),
-          ["<Left>"] = cmp.mapping.select_prev_item(),
-          ["<Right>"] = cmp.mapping.select_next_item(),
           ["<C-n>"] = cmp.mapping.select_next_item(),
           ["<C-p>"] = cmp.mapping.select_prev_item(),
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -110,7 +108,7 @@ return {
           require("luasnip").jump(1)
         end,
         desc = "Jump forward a snippet placement",
-        mode = "i",
+        mode = { "i", "s" },
         noremap = true,
         silent = true,
       },
@@ -120,7 +118,7 @@ return {
           require("luasnip").jump(-1)
         end,
         desc = "Jump backward a snippet placement",
-        mode = "i",
+        mode = { "i", "s" },
         noremap = true,
         silent = true,
       },

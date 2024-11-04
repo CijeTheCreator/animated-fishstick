@@ -20,6 +20,8 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import/override with your plugins
     { import = "plugins" },
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
+    { import = "lazyvim.plugins.extras.linting.eslint" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
@@ -51,5 +53,51 @@ require("lazy").setup({
     },
   },
 })
-require("luasnip").filetype_extend("typescriptreact", {"typescript"})
+require("luasnip").filetype_extend("typescriptreact", { "typescriptreact" })
 require("../custom/snippets/prisma")
+require("../custom/snippets/basic")
+require("extract_symbols")
+require("extract_text")
+
+function _G.trim(s)
+  return (s:gsub("^%s*(.-)%s*$", "%1"))
+end
+function _G.put(...)
+  local objects = {}
+  for i = 1, select("#", ...) do
+    local v = select(i, ...)
+    table.insert(objects, vim.inspect(v))
+  end
+
+  return table.concat(objects, "\n")
+end
+function _G.ClearLog()
+  local filepath = "./debug"
+  local file = io.open(filepath, "w")
+  if file then
+    file:write("")
+    file:close()
+  else
+    print("Could not clear debug")
+  end
+end
+function _G.Log(log)
+  local filepath = "./debug2"
+  local file = io.open(filepath, "a")
+  if file then
+    file:write(log)
+    file:close()
+    print("Text data saved to " .. filepath)
+  else
+    print("Error: Could not save to " .. filepath)
+  end
+end
+function _G.read_json(filepath)
+  local file = io.open(filepath, "rb")
+  if not file then
+    return nil
+  end
+  local jsonString = file:read("*a")
+  file:close()
+  return vim.json.decode(jsonString)
+end

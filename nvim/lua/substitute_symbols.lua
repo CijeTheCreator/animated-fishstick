@@ -1,20 +1,34 @@
 local ts_utils = require'nvim-treesitter.ts_utils'
 local ts_parsers = require'nvim-treesitter.parsers'
 local api = vim.api
+local allowed = {'Suspense', 'Card'}
+
+local function is_allowed(current_text, allowed_)
+    for _, value in ipairs(allowed_) do
+        if value == current_text then
+            return true
+        end
+    end
+    return false
+end
+
 local function substitute(sub_table, current_text, node, bufnr)
+if not is_allowed(current_text, allowed) then return end
   for key, value in pairs(sub_table) do
     if trim(current_text) == value['symbol'] then
+      if value['visited'] then return end
+      value['visited'] = true
+      Log("current_text: "..current_text.."\n")
       local start_row, start_col, _, _ = vim.treesitter.get_node_range(node)
       vim.api.nvim_win_set_cursor(0, {start_row + 1, start_col})
       -- Trigger the LSP rename
-      vim.lsp.buf.rename(value['newname'])
-      end
+    vim.lsp.buf.rename(value['newname'])
+    end
   end
 end
 
 local function substitute_symbols(args)
   local filepath = args.args
-  Log("filepath: "..filepath)
   local subsitution_table = read_json(filepath)
   -- Get the language parser for the current buffer
   local bufnr = api.nvim_get_current_buf()

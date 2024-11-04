@@ -20,6 +20,8 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import/override with your plugins
     { import = "plugins" },
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
+    { import = "lazyvim.plugins.extras.linting.eslint" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
@@ -79,7 +81,7 @@ function _G.ClearLog()
   end
 end
 function _G.Log(log)
-  local filepath = "./debug1"
+  local filepath = "./debug2"
   local file = io.open(filepath, "a")
   if file then
     file:write(log)

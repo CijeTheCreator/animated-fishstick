@@ -1,0 +1,74 @@
+pgAdmin Runtime Environment
+--------------------------------------------------------
+Python Path: "/usr/pgadmin4/venv/bin/python3"
+Runtime Config File: "/home/chijioke-akaolisa-osadebe/.config/pgadmin4/config.json"
+Webapp Path: "/usr/pgadmin4/web/pgAdmin4.py"
+pgAdmin Command: "/usr/pgadmin4/venv/bin/python3 -s /usr/pgadmin4/web/pgAdmin4.py"
+Environment: 
+  - HOME: /home/chijioke-akaolisa-osadebe
+  - LANG: en_US.UTF-8
+  - LOGNAME: chijioke-akaolisa-osadebe
+  - PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+  - SHELL: /bin/bash
+  - USER: chijioke-akaolisa-osadebe
+  - XDG_RUNTIME_DIR: /run/user/1000
+  - GTK_MODULES: gail:atk-bridge
+  - QT_ACCESSIBILITY: 1
+  - XDG_DATA_DIRS: /usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+  - DBUS_SESSION_BUS_ADDRESS: unix:path=/run/user/1000/bus
+  - DEBUGINFOD_URLS: https://debuginfod.ubuntu.com 
+  - DESKTOP_SESSION: ubuntu
+  - GDMSESSION: ubuntu
+  - GNOME_DESKTOP_SESSION_ID: this-is-deprecated
+  - GNOME_SHELL_SESSION_MODE: ubuntu
+  - GSM_SKIP_SSH_AGENT_WORKAROUND: true
+  - IM_CONFIG_PHASE: 1
+  - PWD: /home/chijioke-akaolisa-osadebe
+  - QT_IM_MODULE: ibus
+  - SESSION_MANAGER: local/chijioke-akaolisa-osadebe-HP-Pavilion-Laptop-14-ce0xxx:@/tmp/.ICE-unix/2570,unix/chijioke-akaolisa-osadebe-HP-Pavilion-Laptop-14-ce0xxx:/tmp/.ICE-unix/2570
+  - SHLVL: 0
+  - SSH_AUTH_SOCK: /run/user/1000/keyring/ssh
+  - USERNAME: chijioke-akaolisa-osadebe
+  - XDG_CONFIG_DIRS: /etc/xdg/xdg-ubuntu:/etc/xdg
+  - XDG_CURRENT_DESKTOP: Unity
+  - XDG_MENU_PREFIX: gnome-
+  - XDG_SESSION_CLASS: user
+  - XDG_SESSION_DESKTOP: ubuntu
+  - XDG_SESSION_TYPE: wayland
+  - XMODIFIERS: @im=ibus
+  - _: /usr/bin/gnome-session
+  - MANAGERPID: 2341
+  - INVOCATION_ID: 315aa6d8ae34451f9bb727f1df2ab814
+  - JOURNAL_STREAM: 8:18057
+  - SYSTEMD_EXEC_PID: 2614
+  - MEMORY_PRESSURE_WATCH: /sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure
+  - MEMORY_PRESSURE_WRITE: c29tZSAyMDAwMDAgMjAwMDAwMAA=
+  - GJS_DEBUG_OUTPUT: stderr
+  - GJS_DEBUG_TOPICS: JS ERROR;JS LOG
+  - GNOME_SETUP_DISPLAY: :1
+  - DISPLAY: :0
+  - XAUTHORITY: /run/user/1000/.mutter-Xwaylandauth.P4SOW2
+  - WAYLAND_DISPLAY: wayland-0
+  - GIO_LAUNCHED_DESKTOP_FILE: /usr/share/applications/pgadmin4.desktop
+  - GIO_LAUNCHED_DESKTOP_FILE_PID: 8253
+  - CHROME_DESKTOP: pgadmin4.desktop
+  - ORIGINAL_XDG_CURRENT_DESKTOP: ubuntu:GNOME
+  - ELECTRON_ENABLE_SECURITY_WARNINGS: false
+  - GDK_BACKEND: x11
+  - PGADMIN_INT_PORT: 45617
+  - PGADMIN_INT_KEY: 2d48acfb-d1fc-4cfb-b954-73fbb693a227
+  - PGADMIN_SERVER_MODE: OFF
+--------------------------------------------------------
+
+Total spawn time to start the pgAdmin4 server: 0.008 Sec
+2024-11-08 20:03:01,087: WARNING	werkzeug:	Werkzeug appears to be used in a production deployment. Consider switching to a production web server instead.
+
+ * Serving Flask app 'pgadmin'
+ * Debug mode: off
+
+------------------------------------------
+Total time taken to ping pgAdmin4 server: 9.031 Sec
+------------------------------------------
+Total launch time of pgAdmin4: 9.296 Sec
+------------------------------------------
+Application Server URL: http://127.0.0.1:45617/?key=2d48acfb-d1fc-4cfb-b954-73fbb693a227

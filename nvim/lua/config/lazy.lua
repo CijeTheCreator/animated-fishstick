@@ -53,6 +53,7 @@ require("lazy").setup({
     },
   },
 })
+require("../custom/remaps")
 require("luasnip").filetype_extend("typescriptreact", { "typescriptreact" })
 require("../custom/snippets/prisma")
 require("../custom/snippets/basic")

@@ -103,3 +103,10 @@ function _G.read_json(filepath)
   file:close()
   return vim.json.decode(jsonString)
 end
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown", "txt" },
+  callback = function()
+    vim.opt_local.spell = false
+  end,
+})
